@@ -1,0 +1,12 @@
+steps:
+  # Step 1: Install Yarn
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install', '-g', 'yarn']
+
+  # Step 2: Install dependencies using Yarn
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['install']
+
+  # Step 3: Run build/test steps using Yarn
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['generate']  # Adjust this according to your project's build script
