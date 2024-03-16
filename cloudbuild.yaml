@@ -2,7 +2,7 @@ steps:
   # Step 1: Install Yarn
   - name: 'node'
     entrypoint: 'npm'
-    args: ['install', 'yarn']
+    args: ['install', '-g', 'yarn']
 
   # Step 2: Install dependencies using Yarn
   - name: 'node'
