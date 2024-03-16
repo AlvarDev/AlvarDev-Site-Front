@@ -13,3 +13,7 @@ steps:
   - name: 'node'
     entrypoint: 'yarn'
     args: ['generate']  # Adjust this according to your project's build script
+
+  # Step 4: Deploy in Firebase
+  - name: 'gcr.io/$PROJECT_ID/firebase'
+    args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
