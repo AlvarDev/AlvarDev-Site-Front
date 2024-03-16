@@ -14,21 +14,21 @@
                 v-model="tab"
                 align-tabs="center"
               >
-                <v-tab :value="posts">Blog</v-tab>
-                <v-tab :value="about">About</v-tab>
+                <v-tab :value="'posts'">Blog</v-tab>
+                <v-tab :value="'about'">About</v-tab>
               </v-tabs>
 
               <v-window v-model="tab">
                 <v-window-item
-                  :key="posts"
-                  :value="posts"
+                  :key="'posts'"
+                  :value="'posts'"
                 >
                   <Posts />
                 </v-window-item>
 
                 <v-window-item
-                  :key="about"
-                  :value="about"
+                  :key="'about'"
+                  :value="'about'"
                 >
                   <About />
                 </v-window-item>
@@ -43,12 +43,11 @@
 </template>
 
 <script>
-  import MyMenu from '@/src/components/menu.vue'
   import Posts from '@/src/pages/posts.vue'
   import About from '@/src/pages/about.vue'
 
   export default {
-    components: { MyMenu, About, Posts },
+    components: { About, Posts },
     data () {
       return {
         tab: 'posts',
@@ -101,7 +100,7 @@
 }
 
 .portfolio-logo {
-  background: url('https://storage.googleapis.com/sre-demos-files/Me.png') 50% no-repeat;
+  background: url('https://storage.googleapis.com/alvardev-images/Me.png') 50% no-repeat;
   background-size: cover;
 	border: 50%;
   height: 150px;
@@ -158,18 +157,6 @@
 
 .portfolio-card .mdl-card__title {
   padding-bottom: 0;
-}
-
-.portfolio-blog-card-full-bg {
-  background: url(/static/images/example-blog03.jpg) center / cover;
-}
-
-.portfolio-blog-card-event-bg {
-  background: url(/static/images/example-blog05.jpg) center / cover;
-}
-
-.portfolio-blog-card-strip-bg {
-  background: url(/static/images/example-blog06.jpg) center / cover;
 }
 
 .portfolio-blog-card-compact .mdl-card__title {
@@ -235,11 +222,6 @@ img.article-image {
 .portfolio-contact form {
   max-width: 550px;
   margin: auto;
-}
-
-footer {
-  background-image: url(/static/images/footer-background.png);
-  background-size: cover;
 }
 
 </style>
