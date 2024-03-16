@@ -20,4 +20,7 @@ export default defineNuxtConfig({
       },
     },
   },
+  css: [
+    '@/src/assets/css/material.blue_grey-indigo.min.css',
+  ],
 })
