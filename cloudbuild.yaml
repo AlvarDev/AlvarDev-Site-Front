@@ -5,9 +5,11 @@ steps:
     args: ['install', 'yarn']
 
   # Step 2: Install dependencies using Yarn
-  - name: 'yarn'
+  - name: 'node'
+    entrypoint: 'yarn'
     args: ['install']
 
   # Step 3: Run build/test steps using Yarn
-  - name: 'yarn'
+  - name: 'node'
+    entrypoint: 'yarn'
     args: ['generate']  # Adjust this according to your project's build script
