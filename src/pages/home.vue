@@ -14,28 +14,26 @@
                 v-model="tab"
                 align-tabs="center"
               >
-                <v-tab :value="'posts'">Blog</v-tab>
-                <v-tab :value="'about'">About</v-tab>
+                <v-tab :value="1">Blog</v-tab>
+                <v-tab :value="2">About</v-tab>
               </v-tabs>
 
               <v-window v-model="tab">
                 <v-window-item
-                  :key="'posts'"
-                  :value="'posts'"
+                  :key="1"
+                  :value="1"
                 >
                   <Posts />
                 </v-window-item>
 
                 <v-window-item
-                  :key="'about'"
-                  :value="'about'"
+                  :key="2"
+                  :value="2"
                 >
                   <About />
                 </v-window-item>
 
               </v-window>
-
-
             </div>
         </main>
 </div>
@@ -50,8 +48,8 @@
     components: { About, Posts },
     data () {
       return {
-        tab: 'posts',
-        value: 'posts',
+        tab: null,
+        value: 0,
       }
     },
     computed: {

@@ -7,20 +7,20 @@
             class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
             <div class="mdl-card__media">
               <v-img
-                style="width: 100%; height: 300px;"
+                aspect-ratio="16/9"
                 cover
                 :src=card.src
               />
             </div>
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">{{ card.title }}</h2>
+                <h2 class="mdl-card__title-text" :style="{ color: getColor(card.myType) }"><strong>{{ card.title }}</strong></h2>
             </div>
             <div class="mdl-card__supporting-text">
                 {{ card.description }}
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-                    href="portfolio-example01.html">Read more</a>
+                    :href=card.link target="_blank">Ler mais</a>
             </div>
           </div>
 
@@ -55,11 +55,20 @@
         window.open(link, '_blank');
       },
 
+      getColor(myType: string) {
+        switch (myType) {
+          case 'cloud': return '#4285f4'
+          case 'data': return '#ea4335'
+          case 'dev': return '#34a853'
+          case 'ml': return '#f9ab00'
+          default: return '#4285f4'
+        }
+      },
+
       async loadPosts () {
         try {
           let response = await this.postsService.loadPosts()
           this.cards = response.posts
-          console.log(this.cards)
         } catch (err) {
           console.error(err)
         }
