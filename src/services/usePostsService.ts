@@ -3,7 +3,7 @@ import { useAbstractService } from './useAbstractService'
 export interface IApiPost {
     description:    string
     link:           string
-    myType:         string
+    category:       string
     postID:         string
     src:            string 
     title:          string 

@@ -13,7 +13,7 @@
               />
             </div>
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text" :style="{ color: getColor(card.myType) }"><strong>{{ card.title }}</strong></h2>
+                <h2 class="mdl-card__title-text" :style="{ color: getColor(card.category) }"><strong>{{ card.title }}</strong></h2>
             </div>
             <div class="mdl-card__supporting-text">
                 {{ card.description }}
@@ -55,12 +55,12 @@
         window.open(link, '_blank');
       },
 
-      getColor(myType: string) {
-        switch (myType) {
-          case 'cloud': return '#4285f4'
-          case 'data': return '#ea4335'
-          case 'dev': return '#34a853'
-          case 'ml': return '#f9ab00'
+      getColor(category: string) {
+        switch (category) {
+          case 'cloud':     return '#4285f4'
+          case 'dev':       return '#34a853'
+          case 'ml':        return '#f9ab00'
+          case 'security':  return '#ea4335'
           default: return '#4285f4'
         }
       },
