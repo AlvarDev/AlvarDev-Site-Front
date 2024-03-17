@@ -28,19 +28,42 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+  import { usePostsService, type IApiPost } from '../services/usePostsService'
+  
   export default {
-    data: () => ({
-      cards: [
-        { title: 'Pre-fab homes', src: 'https://storage.googleapis.com/sre-demos-files/google-experts-socialbanner-linkedin-cloud.png', flex: 12 , type: 'video', description:'This is a description', link:'https://alvardev.com/'},
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6, type: 'video', description:'This is a description', link:'https://alvardev.com/'},
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6, type: 'video', description:'This is a description', link:'https://alvardev.com/'},
-      ],
-    }),
+    setup () {
+      return {
+        postsService: usePostsService(),
+      }
+    },
+
+    data () {
+      return {
+        cards: [] as IApiPost[],
+      }
+    },
+
+    async mounted () {
+      // this.setLoadingAppState(true)
+      await this.loadPosts()
+      // this.setLoadingAppState(false)
+    },
+
     methods: {
-    openLinkInNewTab(link) {
-      window.open(link, '_blank');
+      openLinkInNewTab(link: any) {
+        window.open(link, '_blank');
+      },
+
+      async loadPosts () {
+        try {
+          let response = await this.postsService.loadPosts()
+          this.cards = response.posts
+          console.log(this.cards)
+        } catch (err) {
+          console.error(err)
+        }
+      },
     }
-  }
   }
 </script>
