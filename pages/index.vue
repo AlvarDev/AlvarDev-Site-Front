@@ -41,8 +41,8 @@
 </template>
 
 <script>
-  import Posts from '@/src/pages/posts.vue'
-  import About from '@/src/pages/about.vue'
+  import Posts from '@/components/posts.vue'
+  import About from '@/components/about.vue'
 
   export default {
     components: { About, Posts },

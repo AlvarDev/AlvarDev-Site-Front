@@ -20,6 +20,16 @@ export default defineNuxtConfig({
     },
   },
   css: [
-    '@/src/assets/css/material.blue_grey-indigo.min.css',
+    '@/assets/css/material.blue_grey-indigo.min.css',
   ],
+  app: {
+    head: {
+      script: [
+        {
+          src: 'https://cloud.google.com/ai/gen-app-builder/client?hl=en_US', // Replace with the actual widget URL
+          async: true, // Mark the script as asynchronous to avoid blocking rendering
+        },
+      ],
+    },
+  },
 })
