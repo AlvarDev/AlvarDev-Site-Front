@@ -25,3 +25,6 @@ logs
 
 # Firebase
 .firebase
+
+# VS Code
+.vscode/
